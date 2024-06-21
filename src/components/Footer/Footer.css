@@ -1,0 +1,40 @@
+.footer-container{
+    background-color: #242424;
+    color: aliceblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem 0;
+}
+
+.footer-info-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+}
+
+@media (max-width: 949px) {
+    .footer-info-container {
+        justify-content: start;
+    }
+}
+
+.footer-info{
+    width: 300px;
+}
+
+.footer-container h2 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+}
+
+.footer-container p {
+    font-size: 0.8rem;
+}
+
+.rights{
+    text-align: center;
+}
