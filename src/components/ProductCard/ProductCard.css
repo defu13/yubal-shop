@@ -1,22 +1,28 @@
+.light-mode .product-card {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.dark-mode .product-card {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
 .product-card {
     min-width: 280px;
-    border: 1px solid #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
     display: flex;
     flex-direction: column;
     height: 100%;
 }
 
-.product-card-container {
-    will-change: filter;
-    transition: filter 200ms;
+.product-card {
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
 }
 
-.product-card-container:hover {
-    filter: drop-shadow(0 0 0.3rem #646cffaa);
+.product-card:hover {
+    transform: scale(102%);
 }
 
 .product-image {
@@ -29,7 +35,6 @@
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     flex: 1;
 }
 
@@ -37,22 +42,49 @@
     font-size: 18px;
     font-weight: bold;
     margin: 10px 0;
-    color: #242424;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    height: 4.5em;
+}
+
+.light-mode .product-title {
+    color: var(--extra-dark-color);
+}
+
+.dark-mode .product-title {
+    color: var(--extra-light-color);
+}
+
+.light-mode .product-description {
+    color: var(--dark-color);
+}
+
+.dark-mode .product-description {
+    color: var(--light-color);
 }
 
 .product-description {
     font-size: 14px;
-    color: #555;
-    flex: 1;
     margin: 10px 0;
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 9em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 6;
+    overflow: hidden;
 }
 
 .product-price {
     font-size: 16px;
-    color: #007bff;
-    font-weight: bold;
+    font-family: poppins-bold;
     margin: 10px 0;
+    flex: 1;
+    align-content: end;
 }

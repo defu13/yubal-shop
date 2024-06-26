@@ -12,15 +12,29 @@
     opacity: 1;
 }
 
+.light-mode .scroll-button {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.dark-mode .scroll-button {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
 .scroll-button {
-    background-color: #333;
-    color: #fff;
     border: none;
     border-radius: 50%;
-    padding: 10px 15px;
+    height: 50px;
+    width: 50px;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
 }
 
 .scroll-button:hover {
-    background-color: #555;
+    background-color: var(--medium-color);
 }

@@ -1,11 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faCreditCard,
+    faShoppingCart,
     faHeart,
     faUser,
-} from "@fortawesome/free-regular-svg-icons";
+    faSun,
+    faMoon,
+} from "@fortawesome/free-solid-svg-icons";
 import "./NavBar.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { ThemeContext } from "../../context/ThemeContext";
 
 function NavBar({ onSearch }) {
     const [searchInput, setSearchInput] = useState("");
@@ -16,12 +19,22 @@ function NavBar({ onSearch }) {
         }
     };
 
+    const { theme, toggleTheme } = useContext(ThemeContext);
+
+    const toggleThemeAction = () => {
+        toggleTheme();
+        // const button = document.getElementById("theme-button");
+        // button.classList.toggle("active");
+    };
+
     return (
         <>
             <header>
                 <div className="nav-bar">
                     <div className="nav-container">
-                        <p className="logo">MiTienda</p>
+                        <a href="#">
+                            <p className="logo">MiTienda</p>
+                        </a>
                         <a href="#" className="menu-item">
                             INICIO
                         </a>
@@ -46,7 +59,7 @@ function NavBar({ onSearch }) {
                         />
                         <div className="icons-container">
                             <a href="#">
-                                <FontAwesomeIcon icon={faCreditCard} />
+                                <FontAwesomeIcon icon={faShoppingCart} />
                             </a>
                             <a href="#">
                                 <FontAwesomeIcon icon={faHeart} />
@@ -54,6 +67,18 @@ function NavBar({ onSearch }) {
                             <a href="#">
                                 <FontAwesomeIcon icon={faUser} />
                             </a>
+                            <button
+                                id="theme-button"
+                                onClick={toggleThemeAction}
+                            >
+                                <FontAwesomeIcon
+                                    icon={
+                                        theme === "light"
+                                            ? faMoon
+                                            : faSun
+                                    }
+                                />
+                            </button>
                         </div>
                     </div>
                 </div>

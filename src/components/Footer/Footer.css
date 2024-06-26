@@ -1,6 +1,16 @@
+@import url(../../variables.css);
+
+.light-mode .footer-container{
+    background-color: var(--light-color);
+    color: var(--medium-color);
+}
+
+.dark-mode .footer-container{
+    background-color: var(--dark-color);
+    color: var(--medium-color);
+}
+
 .footer-container{
-    background-color: #242424;
-    color: aliceblue;
     display: flex;
     flex-direction: column;
     justify-content: center;
