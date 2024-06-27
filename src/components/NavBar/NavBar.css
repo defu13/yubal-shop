@@ -27,7 +27,7 @@
 }
 
 .icons-container > * {
-    border: none;
+    border: 2px solid transparent;
     font-size: 18px;
     background-color: transparent;
     display: flex;
@@ -54,6 +54,18 @@
     padding-left: 1rem;
     font-family: poppins-medium;
     margin: 0 0.5rem;
+}
+
+.logo-button {
+    background-color: transparent;
+}
+
+.light-mode .logo{
+    color: var(--extra-dark-color);
+}
+
+.dark-mode .logo{
+    color: var(--extra-light-color);
 }
 
 .logo {
@@ -87,6 +99,14 @@
     border-radius: 2rem;
 }
 
+.nav-bar .icons-container > *:active {
+    transform: scale(92%);
+}
+
+.nav-bar .icons-container button, .nav-bar a{
+    border: 2px solid transparent;
+}
+
 .light-mode .menu-item:hover {
     background-color: var(--extra-light-color);
 }
@@ -95,7 +115,17 @@
     background-color: var(--extra-dark-color);
 }
 
-@media (max-width: 619px) {
+.cart-bubble {
+    position: absolute;
+    background-color: var(--danger-color);
+    color: var(--extra-light-color);
+    border-radius: 50%;
+    padding: 0 6px;
+    font-size: 12px;
+    margin: 20px 0 0 20px;
+}
+
+@media (max-width: 670px) {
     .nav-container:first-child {
         flex-wrap: wrap;
     }

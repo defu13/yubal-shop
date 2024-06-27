@@ -1,36 +1,30 @@
+import { useState } from "react";
 import "./App.css";
 import NavBar from "./components/NavBar/NavBar.jsx";
-import Products from "./components/Products/Products.jsx";
+import MainSection from "./components/MainSection/MainSection.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import ScrollToTopButton from "./components/ScrollToTopButton/ScrollToTopButton.jsx";
-
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useState } from "react";
 import { ThemeProvider } from "./context/ThemeContext.jsx";
+import { CartProvider } from "./context/CartContext.jsx";
 
 function App() {
     const [searchQuery, setSearchQuery] = useState("");
-
+    const [view, setView] = useState("products");
     // Manejador de búsqueda
     const handleSearch = (query) => {
         setSearchQuery(query);
-        // toast.success("Búsqueda completada");
     };
 
     return (
         <>
-            <ThemeProvider>
-                <ToastContainer
-                    position="bottom-right"
-                    autoClose={3000}
-                    theme="colored"
-                />
-                <NavBar onSearch={handleSearch} />
-                <Products searchQuery={searchQuery} />
-                <Footer />
-                <ScrollToTopButton />
-            </ThemeProvider>
+            <CartProvider>
+                <ThemeProvider>
+                    <NavBar onSearch={handleSearch} onViewChange={setView}/>
+                    <MainSection searchQuery={searchQuery} view={view} />
+                    <Footer />
+                    <ScrollToTopButton />
+                </ThemeProvider>
+            </CartProvider>
         </>
     );
 }

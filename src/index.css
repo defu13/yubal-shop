@@ -50,7 +50,7 @@ a:active{color:inherit}
 a:visited{color:inherit}
 a:hover{color:inherit}
 
-a {
+a, button {
     text-decoration: inherit;
     transition: transform 0.2s ease-in-out;
 }
@@ -58,7 +58,6 @@ a {
 body {
     margin: 0;
     display: flex;
-    /* place-items: center; */
     min-width: 320px;
     min-height: 100vh;
 }
@@ -69,14 +68,6 @@ h1 {
 
 h2 {
     font-family: poppins-bold;
-}
-
-a:active, button:active{
-    transform: scale(92%);
-}
-
-button, a{
-    transition: all 0.2s ease-in-out;
 }
 
 button {

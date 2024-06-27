@@ -1,17 +1,20 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faShoppingCart,
     faHeart,
     faUser,
     faSun,
     faMoon,
+    faBagShopping,
 } from "@fortawesome/free-solid-svg-icons";
 import "./NavBar.css";
 import { useState, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
+import { CartContext } from "../../context/CartContext";
 
-function NavBar({ onSearch }) {
+function NavBar({ onSearch, onViewChange }) {
     const [searchInput, setSearchInput] = useState("");
+    const { theme, toggleTheme } = useContext(ThemeContext);
+    const { cartItems } = useContext(CartContext);
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
@@ -19,22 +22,25 @@ function NavBar({ onSearch }) {
         }
     };
 
-    const { theme, toggleTheme } = useContext(ThemeContext);
-
     const toggleThemeAction = () => {
         toggleTheme();
-        // const button = document.getElementById("theme-button");
-        // button.classList.toggle("active");
     };
+
+    const handleCartClick = () => {
+        onViewChange("cart"); // Cambiar la vista al hacer clic en el icono del carrito
+    };
+
+    // Calcular el total de productos en el carrito
+    const totalProductsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
 
     return (
         <>
             <header>
                 <div className="nav-bar">
                     <div className="nav-container">
-                        <a href="#">
+                        <button className="logo-button" onClick={() => onViewChange("products")}>
                             <p className="logo">MiTienda</p>
-                        </a>
+                        </button>
                         <a href="#" className="menu-item">
                             INICIO
                         </a>
@@ -59,13 +65,10 @@ function NavBar({ onSearch }) {
                         />
                         <div className="icons-container">
                             <a href="#">
-                                <FontAwesomeIcon icon={faShoppingCart} />
+                                <FontAwesomeIcon icon={faUser} />
                             </a>
                             <a href="#">
                                 <FontAwesomeIcon icon={faHeart} />
-                            </a>
-                            <a href="#">
-                                <FontAwesomeIcon icon={faUser} />
                             </a>
                             <button
                                 id="theme-button"
@@ -79,6 +82,14 @@ function NavBar({ onSearch }) {
                                     }
                                 />
                             </button>
+                            <a href="#" onClick={handleCartClick}>
+                                <FontAwesomeIcon icon={faBagShopping}/>
+                                {cartItems.length > 0 && (
+                                    <span className="cart-bubble">
+                                        {totalProductsInCart}
+                                    </span>
+                                )}
+                            </a>
                         </div>
                     </div>
                 </div>
