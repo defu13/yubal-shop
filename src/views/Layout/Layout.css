@@ -1,0 +1,13 @@
+.layout{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.light-mode .layout {
+    background-color: var(--extra-light-color);
+}
+
+.dark-mode .layout {
+    background-color: var(--extra-dark-color);
+}

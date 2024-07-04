@@ -13,29 +13,3 @@
     padding-top: 1.5rem;
     flex: 1;
 }
-
-.discount-banner {
-    width: 70%;
-    padding: 1rem;
-    font-weight: bold;
-    border-radius: 1rem;
-    text-align: center;
-    font-family: poppins-bold;
-    background-color: var(--alert-color);
-    color: var(--light-color);
-}
-
-.banner-text{
-    margin: 0;
-    font-size: 1rem;
-}
-
-.main-section {
-    display: flex;
-    flex: 1;
-}
-
-.Toastify__toast-theme--dark {
-    background: var(--extra-dark-color) !important;
-    color: var(--light-color) !important;
-}

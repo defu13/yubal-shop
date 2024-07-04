@@ -4,3 +4,12 @@
   flex-direction: column;
   flex: 1;
 }
+
+.Toastify__toast-theme--dark {
+  background: var(--extra-dark-color) !important;
+  color: var(--light-color) !important;
+}
+
+.main-section {
+  height: 100%;
+}

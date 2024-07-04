@@ -1,0 +1,31 @@
+.light-mode .not-found-container{
+    color: var(--dark-color);
+}
+
+.dark-mode .not-found-container{
+    color: var(--light-color);
+}
+
+.not-found-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    gap: 1rem;
+}
+
+.not-found-link:hover{
+    color: var(--detail-color);
+}
+
+.not-found-link{
+    font-family: poppins-medium;
+    text-decoration: underline;
+}
+
+.not-found-title{
+    font-size: 3rem;
+    font-family: poppins-bold;
+    margin-top: 0;
+}

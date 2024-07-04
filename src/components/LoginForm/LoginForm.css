@@ -1,0 +1,107 @@
+
+.login-container {
+    padding: 1.5rem;
+    align-self: center;
+    flex: 1;
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    justify-content: center;
+}
+
+.login-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 2rem 1rem;
+    font-family: poppins-medium;
+    justify-content: center;
+}
+
+.light-mode .login-form-container {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.dark-mode .login-form-container {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+.login-title{
+    margin: 0;
+}
+
+.logout-message{
+    text-align: center;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.login-form input {
+    flex-grow: 1;
+    border-radius: 0.3rem;
+    padding: 0.6rem;
+    padding-left: 1rem;
+    font-family: poppins-regular;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 0.2rem;
+}
+
+.form-group > label{
+    margin-left: 1rem;
+}
+
+.light-mode .login-button {
+    background-color: var(--extra-light-color);
+    color: var(--dark-color);
+}
+
+.dark-mode .login-button {
+    background-color: var(--extra-dark-color);
+    color: var(--light-color);
+}
+
+.login-button{
+    outline: 3px solid var(--medium-color);
+}
+
+.logout-button {
+    background-color: var(--danger-color);
+    color: var(--light-color);
+}
+
+.login-button, .logout-button {
+    width: 100%;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+}
+
+.light-mode .login-button:hover{
+    background-color: var(--light-color);
+}
+
+.dark-mode .login-button:hover{
+    background-color: var(--dark-color);
+}
+
+.logout-button:hover{
+    background-color: var(--danger-light-color);
+}

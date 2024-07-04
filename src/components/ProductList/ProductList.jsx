@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import ProductCard from "../ProductCard/ProductCard.jsx";
 import "./ProductList.css";
 import productsData from "../../../data.json";
+import { useOutletContext } from "react-router-dom";
 
-function ProductList({ searchQuery }) {
+function ProductList() {
+    const { searchQuery = "" } = useOutletContext();
     const [products, setProducts] = useState([]);
+
     useEffect(() => {
         setProducts(productsData);
     }, []);

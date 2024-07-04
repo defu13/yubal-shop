@@ -1,0 +1,17 @@
+.discount-banner {
+    width: 70%;
+    padding: 1rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    text-align: center;
+    font-family: poppins-bold;
+    background-color: var(--alert-color);
+    color: var(--light-color);
+    align-self: center;
+    margin: 1.5rem;
+}
+
+.banner-text{
+    margin: 0;
+    font-size: 1rem;
+}

@@ -1,24 +1,21 @@
 .cart-content {
-    padding: 20px;
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
+    padding: 1.5rem;
+    justify-content: center;
+    flex: 1;
 }
 
-.light-mode .cart-container,
-.light-mode .login-container {
+.light-mode .cart-container {
     background-color: var(--light-color);
     color: var(--dark-color);
 }
 
-.dark-mode .cart-container,
-.dark-mode .login-container {
+.dark-mode .cart-container{
     background-color: var(--dark-color);
     color: var(--light-color);
 }
 
-.cart-container,
-.login-container {
+.cart-container{
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -64,7 +61,6 @@
 .cart-empty-title,
 .cart-title,
 .cart-total-title,
-.login-title,
 .cart-item-title {
     margin: 0;
 }
@@ -80,6 +76,7 @@
     -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
+    margin-bottom: 10px;
 }
 
 .cart-item-price-container{
@@ -101,6 +98,25 @@
     justify-content: space-between;
     align-items: center;
     gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.light-mode .clear-cart-button {
+    color: var(--dark-color);
+}
+
+.dark-mode .clear-cart-button {
+    color: var(--light-color);
+}
+
+.clear-cart-button {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: 30px;
+    padding: 0;
+    gap: 0.5rem;
+    text-decoration: underline;
 }
 
 .quantity-bubble {
@@ -125,72 +141,15 @@
     background-color: var(--detail-light-color);
 }
 
+.cart-checkout{
+    flex: 1;
+    justify-content: end;
+    display: flex;
+    flex-direction: column;
+}
+
 /* Formulario de rergistro */
-.login-container{
-    min-width: 250px;
-    font-family: poppins-medium;
-}
-.login-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
 
-.login-form input {
-    flex-grow: 1;
-    border-radius: 0.3rem;
-    padding: 0.6rem;
-    padding-left: 1rem;
-    font-family: poppins-regular;
-    box-sizing: border-box;
-    width: 100%;
-}
-
-.form-group{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 0.2rem;
-}
-
-.light-mode .login-button {
-    background-color: var(--extra-light-color);
-    color: var(--dark-color);
-}
-
-.dark-mode .login-button {
-    background-color: var(--extra-dark-color);
-    color: var(--light-color);
-}
-
-.login-button{
-    outline: 3px solid var(--medium-color);
-}
-
-.logout-button {
-    background-color: var(--danger-color);
-    color: var(--light-color);
-}
-
-.login-button, .logout-button {
-    width: 100%;
-    border: none;
-    border-radius: 0.5rem;
-    padding: 0.6rem;
-    margin-top: 0.5rem;
-}
-
-.light-mode .login-button:hover{
-    background-color: var(--light-color);
-}
-
-.dark-mode .login-button:hover{
-    background-color: var(--dark-color);
-}
-
-.logout-button:hover{
-    background-color: var(--danger-light-color);
-}
 
 @media (max-width: 845px) {
     .cart-content {

@@ -77,8 +77,17 @@ button {
     font-size: 1em;
     font-weight: 500;
     font-family: inherit;
-    background-color: #1a1a1a;
+    background-color: transparent;
     cursor: pointer;
+}
+
+button:focus,
+button:focus-visible {
+    outline: none;
+}
+
+button.added-to-cart {
+    background-color: green !important;
 }
 
 .light-mode ::placeholder{

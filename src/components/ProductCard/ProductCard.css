@@ -16,10 +16,11 @@
     flex-direction: column;
     height: 100%;
     cursor: pointer;
+    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
 }
 
-.product-card {
-    transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
+.product-card-container{
+    display: flex;
 }
 
 .product-card:hover {
@@ -37,6 +38,12 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+.product-detail-link{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .product-title {
@@ -114,11 +121,12 @@
 
 .add-to-cart-button {
     background-color: var(--detail-color);
-    color: var(--extra-light-color);
+    color: var(--extra-light-color) !important;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
     border-radius: 0 0 10px 10px;
     font-family: poppins-medium;
+    max-height: 50px;
 }

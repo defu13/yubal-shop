@@ -1,11 +1,12 @@
-import { useContext } from "react";
-import { CartContext } from "../../context/CartContext.jsx";
 import "./CartContent.css";
 import "react-toastify/dist/ReactToastify.css";
-import LoginForm from "../LoginForm/LoginForm.jsx";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useCart } from "../../hooks/useCart.js";
 
 function CartContent() {
-    const { cartItems, calculateTotal } = useContext(CartContext);
+    const { cartItems, calculateTotal, clearCart, finishOrder } = useCart();
+
 
     return (
         <div className="cart-content">
@@ -18,7 +19,7 @@ function CartContent() {
             ) : (
                 <div className="cart-container">
                     <div>
-                        <h1 className="cart-title">Cesta de la compra</h1>
+                        <h1 className="cart-title">Tu cesta</h1>
                         <p>Revisa tu pedido antes de continuar con tu compra</p>
                     </div>
                     {cartItems.map((item) => (
@@ -58,17 +59,25 @@ function CartContent() {
                             </div>
                         </div>
                     ))}
-                    <div className="cart-total">
-                        <h1 className="cart-total-title">
-                            Total: {calculateTotal()} €
-                        </h1>
-                        <button className="order-button">
-                            Realizar compra
+                    <div className="cart-checkout">
+                        <button className="clear-cart-button" onClick={clearCart}>
+                            <FontAwesomeIcon
+                                icon={faXmark}
+                                className="close-button"
+                            />
+                            <p>Vaciar cesta</p>
                         </button>
+                        <div className="cart-total">
+                            <h1 className="cart-total-title">
+                                Total: {calculateTotal(cartItems)} €
+                            </h1>
+                            <button className="order-button" onClick={finishOrder}>
+                                Realizar pedido
+                            </button>
+                        </div>
                     </div>
                 </div>
             )}
-            <LoginForm/>
         </div>
     );
 }

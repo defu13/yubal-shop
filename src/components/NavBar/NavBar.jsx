@@ -10,8 +10,9 @@ import "./NavBar.css";
 import { useState, useContext } from "react";
 import { ThemeContext } from "../../context/ThemeContext";
 import { CartContext } from "../../context/CartContext";
+import { Link } from "react-router-dom";
 
-function NavBar({ onSearch, onViewChange }) {
+function NavBar({ onSearch }) {
     const [searchInput, setSearchInput] = useState("");
     const { theme, toggleTheme } = useContext(ThemeContext);
     const { cartItems } = useContext(CartContext);
@@ -26,33 +27,26 @@ function NavBar({ onSearch, onViewChange }) {
         toggleTheme();
     };
 
-    const handleCartClick = () => {
-        onViewChange("cart"); // Cambiar la vista al hacer clic en el icono del carrito
-    };
-
     // Calcular el total de productos en el carrito
-    const totalProductsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
+    const totalProductsInCart = cartItems.reduce(
+        (total, item) => total + item.quantity,
+        0
+    );
 
     return (
         <>
             <header>
-                <div className="nav-bar">
+                <nav className="nav-bar">
                     <div className="nav-container">
-                        <button className="logo-button" onClick={() => onViewChange("products")}>
+                        <Link to="/" className="logo-button">
                             <p className="logo">MiTienda</p>
-                        </button>
-                        <a href="#" className="menu-item">
-                            INICIO
-                        </a>
-                        <a href="#" className="menu-item">
-                            CATEGORÍAS
-                        </a>
-                        <a href="#" className="menu-item">
-                            OFERTAS
-                        </a>
-                        <a href="#" className="menu-item">
-                            CONTACTO
-                        </a>
+                        </Link>
+                        <Link to="/" className="menu-item">
+                            Inicio
+                        </Link>
+                        <Link className="menu-item" to="/">Categorías</Link>
+                        <Link className="menu-item" to="/">Ofertas</Link>
+                        <Link className="menu-item" to="/">Contacto</Link>
                     </div>
                     <div className="nav-container">
                         <input
@@ -64,9 +58,11 @@ function NavBar({ onSearch, onViewChange }) {
                             onKeyDown={handleKeyDown}
                         />
                         <div className="icons-container">
-                            <a href="#">
-                                <FontAwesomeIcon icon={faUser} />
-                            </a>
+                            <Link to="/login">
+                                <button>
+                                    <FontAwesomeIcon icon={faUser} />
+                                </button>
+                            </Link>
                             <a href="#">
                                 <FontAwesomeIcon icon={faHeart} />
                             </a>
@@ -75,24 +71,22 @@ function NavBar({ onSearch, onViewChange }) {
                                 onClick={toggleThemeAction}
                             >
                                 <FontAwesomeIcon
-                                    icon={
-                                        theme === "light"
-                                            ? faMoon
-                                            : faSun
-                                    }
+                                    icon={theme === "light" ? faMoon : faSun}
                                 />
                             </button>
-                            <a href="#" onClick={handleCartClick}>
-                                <FontAwesomeIcon icon={faBagShopping}/>
-                                {cartItems.length > 0 && (
-                                    <span className="cart-bubble">
-                                        {totalProductsInCart}
-                                    </span>
-                                )}
-                            </a>
+                            <Link to="/cart">
+                                <div className="icon-button">
+                                    <FontAwesomeIcon icon={faBagShopping} />
+                                    {cartItems.length > 0 && (
+                                        <span className="cart-bubble">
+                                            {totalProductsInCart}
+                                        </span>
+                                    )}
+                                </div>
+                            </Link>
                         </div>
                     </div>
-                </div>
+                </nav>
             </header>
         </>
     );
