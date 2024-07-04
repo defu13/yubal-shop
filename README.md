@@ -1,3 +1,3 @@
 # Yubal shop
 
-Este es mi primer proyecto de ecommerce web utilizando React
+Este es un proyecto de prueba Ecommerce que utiliza React
