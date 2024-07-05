@@ -7,6 +7,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import ProductModal from "../ProductModal/ProductModal.jsx";
 import { useModal } from "../../hooks/useModal.js";
 import { useProductsCrud } from "../../hooks/useProductsCrud.js";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
 
 function ProductList() {
     const { searchQuery = "" } = useOutletContext();
@@ -20,7 +21,7 @@ function ProductList() {
         productId,
     } = useModal();
     const { user } = useAuth();
-    const { deleteProduct, products } = useProductsCrud();
+    const { deleteProduct, products, loading } = useProductsCrud();
 
     const filteredProducts = products.filter((product) =>
         product.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -33,6 +34,10 @@ function ProductList() {
     const handleDelete = (productId) => {
         deleteProduct(productId);
     };
+
+    if(loading) {
+        return <LoadingSpinner />
+    }
 
     return (
         <div className="product-list">
