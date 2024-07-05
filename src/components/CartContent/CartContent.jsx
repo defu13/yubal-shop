@@ -13,7 +13,7 @@ function CartContent() {
             {cartItems.length === 0 ? (
                 <div className="cart-container">
                     <h1 className="cart-empty-title">
-                        ¡El carrito está vacío!
+                        ¡La cesta está vacía!
                     </h1>
                 </div>
             ) : (

@@ -1,19 +1,20 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./ProductDetails.css";
-import productsData from "../../../data.json";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../../hooks/useCart";
 import BackButton from "../BackButton/BackButton";
+import { useProducts } from "../../context/ProductsContext";
 
 function ProductDetails() {
     const { addToCart } = useCart();
     const [isAdded, setIsAdded] = useState(false);
+    const { products } = useProducts();
 
     const { id } = useParams();
-    const productId = parseInt(id, 10);
-    const product = productsData.find((p) => p.id === productId);
+    const productId = id.toString();
+    const product = products.find((p) => p.id === productId);
 
     const handleAddToCart = () => {
         addToCart(product);
@@ -36,7 +37,9 @@ function ProductDetails() {
                 <BackButton />
                 <div className="product-details">
                     {!product ? (
-                        <h1>Producto no encontrado</h1>
+                        <h1 className="product-details-notfound">
+                            Producto no encontrado
+                        </h1>
                     ) : (
                         <>
                             <div className="product-details-image-container">

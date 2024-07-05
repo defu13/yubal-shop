@@ -1,0 +1,50 @@
+.confirm-modal-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+}
+
+.confirm-modal-content h1{
+    text-align: center;
+    font-family: poppins-bold;
+    font-size: 2rem;
+}
+
+.confirm-modal-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.confirm-button{
+    background-color: var(--detail-color);
+    color: var(--light-color);
+}
+
+.cancel-button{
+    border: 2px solid;
+}
+
+.confirm-button:hover{
+    background-color: var(--detail-light-color);
+}
+
+.light-mode .cancel-button{
+    border-color: var(--dark-color);
+    color: var(--dark-color);
+}
+
+.dark-mode .cancel-button{
+    border-color: var(--light-color);
+    color: var(--light-color);
+}
+
+.light-mode .cancel-button:hover{
+    background-color: var(--extra-light-color);
+}
+
+.dark-mode .cancel-button:hover{
+    background-color: var(--extra-dark-color);
+}

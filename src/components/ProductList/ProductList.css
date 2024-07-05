@@ -1,6 +1,6 @@
 .product-list {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
     gap: 2rem;
     min-height: 300px;
     flex: 1;
@@ -18,28 +18,48 @@
     font-size: 1.5rem;
 }
 
-/* Responsividad */
+.light-mode .add-product-button{
+    background-color: var(--light-color);
+}
 
+.dark-mode .add-product-button{
+    background-color: var(--dark-color);
+}
+
+.add-product-button{
+    font-size: 6rem;
+    padding: 0;
+    color: var(--detail-color);
+    border: 3px solid var(--detail-color);
+}
+
+.add-product-button:hover{
+    border-color: var(--detail-light-color);
+    color: var(--detail-light-color);
+}
+
+
+/* Responsividad */
 @media (min-width: 700px) {
     .product-list {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
     }
 }
 
 @media (min-width: 970px) {
     .product-list {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(200px, 1fr));
     }
 }
 
 @media (min-width: 1330px) {
     .product-list {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
     }
 }
 
 @media (min-width: 1580px) {
     .product-list {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(5, minmax(200px, 1fr));
     }
 }

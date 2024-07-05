@@ -1,15 +1,20 @@
 #root {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .Toastify__toast-theme--dark {
-  background: var(--extra-dark-color) !important;
-  color: var(--light-color) !important;
+    background: var(--extra-dark-color) !important;
+    color: var(--light-color) !important;
+}
+
+.Toastify__toast {
+    font-family: poppins-medium !important;
+
 }
 
 .main-section {
-  height: 100%;
+    height: 100%;
 }

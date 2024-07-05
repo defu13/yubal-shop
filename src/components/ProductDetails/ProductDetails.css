@@ -103,7 +103,9 @@
     background-color: var(--detail-light-color);
 }
 
-
+.product-details-notfound{
+    margin: 2rem;
+}
 
 @media (max-width: 780px){
     .product-details{

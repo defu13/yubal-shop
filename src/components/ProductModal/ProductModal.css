@@ -1,0 +1,21 @@
+.create-product-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.create-product-form > textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.create-product-form > input,
+.create-product-form > textarea {
+    flex-grow: 1;
+    border-radius: 0.3rem;
+    padding: 0.6rem;
+    padding-left: 1rem;
+    font-family: poppins-regular;
+    box-sizing: border-box;
+    width: 100%;
+}

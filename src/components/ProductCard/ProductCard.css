@@ -15,6 +15,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    width: 100%;
     cursor: pointer;
     transition: transform 200ms ease-in-out, box-shadow 200ms ease-in-out;
 }
@@ -97,24 +98,6 @@
     align-content: end;
 }
 
-/* .light-mode .add-to-cart-button {
-    background-color: var(--extra-dark-color);
-    color: var(--light-color);
-}
-
-.dark-mode .add-to-cart-button {
-    background-color: var(--extra-light-color);
-    color: var(--dark-color);
-} */
-
-/* .dark-mode .add-to-cart-button:hover{
-    background-color: var(--medium-light-color);
-}
-
-.light-mode .add-to-cart-button:hover{
-    background-color: var(--medium-dark-color);
-} */
-
 .add-to-cart-button:hover {
     background-color: var(--detail-light-color);
 }
@@ -129,4 +112,50 @@
     border-radius: 0 0 10px 10px;
     font-family: poppins-medium;
     max-height: 50px;
+}
+
+.light-mode .admin-controls-container {
+    background-color: var(--light-color);
+}
+
+.dark-mode .admin-controls-container {
+    background-color: var(--dark-color);
+}
+
+.light-mode .admin-control-button{
+    color: var(--dark-color);
+}
+
+.dark-mode .admin-control-button{
+    color: var(--light-color);
+}
+
+.light-mode .admin-control-button:hover{
+    background-color: var(--extra-light-color);
+}
+
+.dark-mode .admin-control-button:hover{
+    background-color: var(--extra-dark-color);
+}
+
+.admin-control-button:active{
+    transform: scale(92%);
+}
+
+.admin-control-button{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.admin-controls-container {
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    padding: 0.3rem;
+    box-sizing: border-box;
+    gap: 0.5rem;
 }

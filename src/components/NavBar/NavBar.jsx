@@ -27,7 +27,7 @@ function NavBar({ onSearch }) {
         toggleTheme();
     };
 
-    // Calcular el total de productos en el carrito
+    // Calcular el total de productos en la cesta
     const totalProductsInCart = cartItems.reduce(
         (total, item) => total + item.quantity,
         0

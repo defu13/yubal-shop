@@ -6,7 +6,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState({ name: "", email: "" });
+    const [user, setUser] = useState({ name: "", email: "", role: "" });
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [authChecked, setAuthChecked] = useState(false);
     const { setItem, getItem, removeItem } = useLocalStorage("user");
@@ -35,8 +35,13 @@ export const AuthProvider = ({ children }) => {
             return;
         }
 
+        // Determinar rol de usuario
+        const role = user.email.includes("@admin.") ? "admin" : "user";
+
         // Guardamos el usuario en el localStorage
-        setItem(user);
+        const userWithRole = { ...user, role };
+        setUser(userWithRole);
+        setItem(userWithRole);
         
         const loginInputs = document.querySelectorAll(".login-form input");
         loginInputs.forEach((input) => (input.value = ""));

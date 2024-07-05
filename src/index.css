@@ -94,7 +94,8 @@ button.added-to-cart {
     color: var(--medium-color);
 }
 
-.light-mode input{
+.light-mode input,
+.light-mode textarea{
     border: none;
     background-color: var(--extra-light-color);
     color: var(--dark-color);
@@ -107,7 +108,8 @@ button.added-to-cart {
     color: var(--medium-color);
 }
 
-.dark-mode input{
+.dark-mode input,
+.dark-mode textarea{
     border: none;
     background-color: var(--extra-dark-color);
     color: var(--light-color);
@@ -117,6 +119,8 @@ button.added-to-cart {
 }
 
 input:focus,
-input:focus-visible {
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible {
     outline: 3px solid var(--medium-color);
 }

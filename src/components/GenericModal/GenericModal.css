@@ -1,0 +1,67 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.light-mode .modal-content {
+    background: var(--light-color);
+    color: var(--dark-color);
+}
+
+.dark-mode .modal-content {
+    background: var(--dark-color);
+    color: var(--light-color);
+}
+
+.modal-content {
+    background: var(--light-color);
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+}
+
+.light-mode .modal-close-button {
+    color: var(--dark-color);
+}
+
+.dark-mode .modal-close-button {
+    color: var(--light-color);
+}
+
+.modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    padding: 0.5rem;
+}
+
+.create-product-button{
+    background-color: var(--detail-color);
+    color: var(--extra-light-color);
+    font-family: poppins-medium;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.create-product-button:hover{
+    background-color: var(--detail-light-color);
+}
