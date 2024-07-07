@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
-import { useProducts } from "../context/ProductsContext";
+import { useProducts } from "./useProducts"; 
 
 const API_URL = "http://localhost:3000/products";
 
@@ -24,10 +24,10 @@ export const useProductsCrud = () => {
             console.error("Error fetching products:", error);
         } finally {
             // Simular carga lenta
-            // setTimeout(() => {
-            //     setLoading(false);
-            // }, 1000);
-            setLoading(false);
+            setTimeout(() => {
+                setLoading(false);
+            }, 1000);
+            // setLoading(false);
         }
     };
 

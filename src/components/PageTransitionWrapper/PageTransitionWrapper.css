@@ -1,0 +1,5 @@
+.page-transition-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}

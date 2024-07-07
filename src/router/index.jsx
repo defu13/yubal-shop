@@ -6,6 +6,8 @@ import ProductList from "../components/ProductList/ProductList";
 import Layout from "../views/Layout/Layout";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import NotFound from "../components/NotFound/NotFound";
+import PageTransitionWrapper from "../components/PageTransitionWrapper/PageTransitionWrapper";
+import { AnimatePresence } from "framer-motion";
 
 export const router = createBrowserRouter([
     {
@@ -14,32 +16,44 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <ProductList />,
+                element: (
+                    <PageTransitionWrapper>
+                        <ProductList />
+                    </PageTransitionWrapper>
+                ),
             },
             {
                 path: "/cart",
                 element: (
                     <ProtectedRoute>
-                        <CartContent />
+                        <PageTransitionWrapper>
+                            <CartContent />
+                        </PageTransitionWrapper>
                     </ProtectedRoute>
                 ),
             },
             {
                 path: "/login",
-                element: <LoginForm />,
+                element: (
+                    <PageTransitionWrapper>
+                        <LoginForm />
+                    </PageTransitionWrapper>
+                ),
             },
             {
                 path: "/product/:id",
                 element: (
                     <ProtectedRoute>
-                        <ProductDetails />
+                        <PageTransitionWrapper>
+                            <ProductDetails />
+                        </PageTransitionWrapper>
                     </ProtectedRoute>
                 ),
             },
             {
                 path: "*",
                 element: <NotFound />,
-            }
+            },
         ],
     },
 ]);

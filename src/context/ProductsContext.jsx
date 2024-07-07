@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const ProductsContext = createContext();
 
@@ -14,9 +14,4 @@ export const ProductsProvider = ({ children }) => {
             {children}
         </ProductsContext.Provider>
     );
-};
-
-export const useProducts = () => {
-    const context = useContext(ProductsContext);
-    return context;
 };

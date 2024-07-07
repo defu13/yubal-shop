@@ -8,18 +8,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./NavBar.css";
 import { useState, useContext } from "react";
-import { ThemeContext } from "../../context/ThemeContext";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { useSearch } from "../../context/SearchContext";
+import { useTheme } from "../../hooks/useTheme";
 
-function NavBar({ onSearch }) {
+function NavBar() {
     const [searchInput, setSearchInput] = useState("");
-    const { theme, toggleTheme } = useContext(ThemeContext);
+    const { theme, toggleTheme } = useTheme();
     const { cartItems } = useContext(CartContext);
+    const { setSearchQuery } = useSearch();
 
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
-            onSearch(searchInput.trim());
+            setSearchQuery(searchInput.trim());
         }
     };
 
@@ -44,15 +46,21 @@ function NavBar({ onSearch }) {
                         <Link to="/" className="menu-item">
                             Inicio
                         </Link>
-                        <Link className="menu-item" to="/">Categorías</Link>
-                        <Link className="menu-item" to="/">Ofertas</Link>
-                        <Link className="menu-item" to="/">Contacto</Link>
+                        <Link className="menu-item" to="/">
+                            Categorías
+                        </Link>
+                        <Link className="menu-item" to="/">
+                            Ofertas
+                        </Link>
+                        <Link className="menu-item" to="/">
+                            Contacto
+                        </Link>
                     </div>
                     <div className="nav-container">
                         <input
                             className="search-bar"
                             type="text"
-                            placeholder="Buscar productos"
+                            placeholder="Pulsa Enter para buscar"
                             value={searchInput}
                             onChange={(e) => setSearchInput(e.target.value)}
                             onKeyDown={handleKeyDown}

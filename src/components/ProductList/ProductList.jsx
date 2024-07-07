@@ -1,6 +1,5 @@
 import ProductCard from "../ProductCard/ProductCard.jsx";
 import "./ProductList.css";
-import { useOutletContext } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -8,9 +7,10 @@ import ProductModal from "../ProductModal/ProductModal.jsx";
 import { useModal } from "../../hooks/useModal.js";
 import { useProductsCrud } from "../../hooks/useProductsCrud.js";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
+import { useSearch } from "../../context/SearchContext.jsx";
 
 function ProductList() {
-    const { searchQuery = "" } = useOutletContext();
+    const { filteredProducts } = useSearch();
     const {
         handleOpen,
         isOpen,
@@ -21,11 +21,7 @@ function ProductList() {
         productId,
     } = useModal();
     const { user } = useAuth();
-    const { deleteProduct, products, loading } = useProductsCrud();
-
-    const filteredProducts = products.filter((product) =>
-        product.title.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const { deleteProduct, loading } = useProductsCrud();
 
     const handleEdit = (product) => {
         handleOpen(product);
@@ -35,8 +31,8 @@ function ProductList() {
         deleteProduct(productId);
     };
 
-    if(loading) {
-        return <LoadingSpinner />
+    if (loading) {
+        return <LoadingSpinner />;
     }
 
     return (
@@ -62,7 +58,7 @@ function ProductList() {
             {filteredProducts.length === 0 ? (
                 <h1 className="search-message">
                     ¡No se encontraron productos! <br />
-                    :(
+                    {":("}
                 </h1>
             ) : (
                 filteredProducts.map((product) => (

@@ -2,7 +2,7 @@
   "products": [
     {
       "id": "1",
-      "title": "pepa - Foldsack No. 1 Backpack, Fits 15 Laptops",
+      "title": "Mochila - Foldsack No. 1 Backpack, Fits 15 Laptops",
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
       "price": 109.95,
       "category": "men's clothing",
@@ -254,11 +254,11 @@
     },
     {
       "id": "bc71eef4-a500-4d7b-b3ca-1936a33d1f30",
-      "title": "cacafuti",
-      "description": "asdfasdf",
-      "price": "4545",
-      "category": "asdfasdf",
-      "image": "https://www.eclosio.ong/wp-content/uploads/2018/08/default.png",
+      "title": "Honda civic EJ1",
+      "description": "D16Z9\t1.600cc\t16v\t130cv\tSOHC VTEC\tEJ1 (Coupe)",
+      "price": "8000",
+      "category": "Cars",
+      "image": "https://pbs.twimg.com/media/FkFSLwUXkAExW9V.jpg",
       "rating": {
         "rate": "",
         "count": ""
