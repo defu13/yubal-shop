@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import ProductModal from "../ProductModal/ProductModal.jsx";
 import { useModal } from "../../hooks/useModal.js";
-import { useProductsCrud } from "../../hooks/useProductsCrud.js";
+import { useProducts } from "../../hooks/useProducts.js";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
 import { useSearch } from "../../context/SearchContext.jsx";
 
@@ -21,7 +21,7 @@ function ProductList() {
         productId,
     } = useModal();
     const { user } = useAuth();
-    const { deleteProduct, loading } = useProductsCrud();
+    const { deleteProduct, loading } = useProducts();
 
     const handleEdit = (product) => {
         handleOpen(product);

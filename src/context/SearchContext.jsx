@@ -1,9 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
+import { useProducts } from "../hooks/useProducts";
 
 const SearchContext = createContext();
 
-export const SearchProvider = ({ children, products }) => {
+export const SearchProvider = ({ children }) => {
     const [searchQuery, setSearchQuery] = useState("");
+    const { products } = useProducts();
     const [filteredProducts, setFilteredProducts] = useState(products);
 
     useEffect(() => {
@@ -30,4 +32,4 @@ export const SearchProvider = ({ children, products }) => {
 export const useSearch = () => {
     const context = useContext(SearchContext);
     return context;
-}
+};

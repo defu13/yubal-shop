@@ -7,7 +7,6 @@ import Layout from "../views/Layout/Layout";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
 import NotFound from "../components/NotFound/NotFound";
 import PageTransitionWrapper from "../components/PageTransitionWrapper/PageTransitionWrapper";
-import { AnimatePresence } from "framer-motion";
 
 export const router = createBrowserRouter([
     {

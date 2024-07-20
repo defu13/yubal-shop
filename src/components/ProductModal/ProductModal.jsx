@@ -1,6 +1,6 @@
 import GenericModal from "../GenericModal/GenericModal";
 import "./ProductModal.css";
-import { useProductsCrud } from "../../hooks/useProductsCrud";
+import { useProducts } from "../../hooks/useProducts";
 import { toast } from "react-toastify";
 
 const ProductModal = ({
@@ -11,7 +11,7 @@ const ProductModal = ({
     productId,
     isEditMode,
 }) => {
-    const { createProduct, updateProduct, products } = useProductsCrud();
+    const { createProduct, updateProduct, products } = useProducts();
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -29,7 +29,6 @@ export const CartProvider = ({ children }) => {
             setCartItems(updatedCart);
             setItem(updatedCart);
         }
-
     };
 
     const calculateTotal = (cartItems) => {
