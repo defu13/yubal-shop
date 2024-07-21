@@ -1,7 +1,8 @@
 import GenericModal from "../GenericModal/GenericModal";
 import "./ProductModal.css";
-import { useProducts } from "../../hooks/useProducts";
 import { toast } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { createProduct, updateProduct } from "../../redux/reducers/productsSlice";
 
 const ProductModal = ({
     isOpen,
@@ -11,7 +12,8 @@ const ProductModal = ({
     productId,
     isEditMode,
 }) => {
-    const { createProduct, updateProduct, products } = useProducts();
+    const dispatch = useDispatch();
+    const products = useSelector((state) => state.products.products);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -28,15 +30,14 @@ const ProductModal = ({
             if(existingProduct) {
                 productToHandle.rating = existingProduct.rating;
             }
-            console.log(productToHandle);
-            updateProduct(productId, productToHandle);
+            dispatch(updateProduct({id: productId, updatedProduct: productToHandle}));
             toast.success("Producto guardado correctamente");
         } else {
             productToHandle.rating = {
                 rate: "",
                 count: "",
             };
-            createProduct(productToHandle);
+            dispatch(createProduct(productToHandle));
             toast.success("Producto creado correctamente");
         }
         onClose();

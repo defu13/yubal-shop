@@ -86,15 +86,6 @@ export const ProductsProvider = ({ children }) => {
         }
     };
 
-    // return {
-    //     products,
-    //     setProducts,
-    //     createProduct,
-    //     updateProduct,
-    //     deleteProduct,
-    //     loading,
-    // };
-
     const ProductsContextValues = {
         products,
         setProducts,

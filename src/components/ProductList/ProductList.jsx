@@ -5,11 +5,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import ProductModal from "../ProductModal/ProductModal.jsx";
 import { useModal } from "../../hooks/useModal.js";
-import { useProducts } from "../../hooks/useProducts.js";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner.jsx";
 import { useSearch } from "../../context/SearchContext.jsx";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProducts, deleteProduct } from "../../redux/reducers/productsSlice.js";
 
 function ProductList() {
+    const dispatch = useDispatch();
     const { filteredProducts } = useSearch();
     const {
         handleOpen,
@@ -21,14 +24,18 @@ function ProductList() {
         productId,
     } = useModal();
     const { user } = useAuth();
-    const { deleteProduct, loading } = useProducts();
+    const loading = useSelector((state) => state.products.loading);
+
+    useEffect(() => {
+        dispatch(getProducts());
+    }, [dispatch]);
 
     const handleEdit = (product) => {
         handleOpen(product);
     };
 
     const handleDelete = (productId) => {
-        deleteProduct(productId);
+        dispatch(deleteProduct(productId));
     };
 
     if (loading) {

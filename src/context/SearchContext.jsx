@@ -1,11 +1,11 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useProducts } from "../hooks/useProducts";
+import { useSelector } from "react-redux";
 
 const SearchContext = createContext();
 
 export const SearchProvider = ({ children }) => {
     const [searchQuery, setSearchQuery] = useState("");
-    const { products } = useProducts();
+    const products = useSelector((state) => state.products.products);
     const [filteredProducts, setFilteredProducts] = useState(products);
 
     useEffect(() => {

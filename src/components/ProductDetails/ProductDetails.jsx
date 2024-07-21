@@ -5,12 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar, faPlus, faCheck } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../../hooks/useCart";
 import BackButton from "../BackButton/BackButton";
-import { useProducts } from "../../hooks/useProducts"; 
+import { useSelector } from "react-redux";
 
 function ProductDetails() {
     const { addToCart } = useCart();
     const [isAdded, setIsAdded] = useState(false);
-    const { products } = useProducts();
+    const products = useSelector((state) => state.products.products);
 
     const { id } = useParams();
     const productId = id.toString();
