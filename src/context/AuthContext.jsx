@@ -20,43 +20,28 @@ export const AuthProvider = ({ children }) => {
         setAuthChecked(true);
     }, []);
 
-    const handleLogin = () => {
-
-        if (!user.name || !user.email) {
-            const errorMessage = "Por favor, rellena todos los campos";
-            toast.error(errorMessage);
-            return;
-        }
-
-        if (!validateEmail(user.email)) {
-            const errorMessage =
-                "Por favor, introduce un correo electrónico válido";
-            toast.error(errorMessage);
-            return;
-        }
-
+    const handleLogin = (formData, location, navigate) => {
         // Determinar rol de usuario
-        const role = user.email.includes("@admin.") ? "admin" : "user";
+        const role = formData.email.includes("@admin.") ? "admin" : "user";
 
         // Guardamos el usuario en el localStorage
-        const userWithRole = { ...user, role };
+        const userWithRole = { ...formData, role };
         setUser(userWithRole);
         setItem(userWithRole);
-        
-        const loginInputs = document.querySelectorAll(".login-form input");
-        loginInputs.forEach((input) => (input.value = ""));
         setIsLoggedIn(true);
+        navigate(location.state ? location.state.pathname : "/");
+        toast.success("Sesión iniciada correctamente");
     };
 
-    const validateEmail = (email) => {
-        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return re.test(String(email).toLowerCase());
-    };
+    // const validateEmail = (email) => {
+    //     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    //     return re.test(String(email).toLowerCase());
+    // };
 
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setUser((prevUser) => ({ ...prevUser, [name]: value }));
-    };
+    // const handleInputChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setUser((prevUser) => ({ ...prevUser, [name]: value }));
+    // };
 
     const handleLogout = () => {
         removeItem();
@@ -70,7 +55,6 @@ export const AuthProvider = ({ children }) => {
         authChecked,
         handleLogin,
         handleLogout,
-        handleInputChange,
     };
 
     return (

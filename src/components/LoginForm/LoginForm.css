@@ -105,3 +105,9 @@
 .logout-button:hover{
     background-color: var(--danger-light-color);
 }
+
+.error-message {
+    color: var(--danger-color);
+    font-family: poppins-regular;
+    font-size: 0.8rem;
+}
