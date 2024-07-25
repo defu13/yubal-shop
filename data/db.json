@@ -4,8 +4,8 @@
       "id": "1",
       "title": "Mochila - Foldsack No. 1 Backpack, Fits 15 Laptops",
       "description": "Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday",
-      "price": 109.95,
       "category": "men's clothing",
+      "price": "109.95",
       "image": "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
       "rating": {
         "rate": 4.7,
@@ -259,6 +259,18 @@
       "price": "8000",
       "category": "Cars",
       "image": "https://pbs.twimg.com/media/FkFSLwUXkAExW9V.jpg",
+      "rating": {
+        "rate": "",
+        "count": ""
+      }
+    },
+    {
+      "id": "6ade65eb-c548-4235-aa1d-18719cd7576f",
+      "title": "sdfgsdfg",
+      "description": "sdfgsdfg",
+      "category": "sdfg",
+      "price": "2.50",
+      "image": "https://www.eclosio.ong/wp-content/uploads/2018/08/default.png",
       "rating": {
         "rate": "",
         "count": ""

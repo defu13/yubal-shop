@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export const useModal = (initialState = false) => {
     const [isOpen, setIsOpen] = useState(initialState);
-    const [formValues, setFormValues] = useState({
+    const [initialValues, setInitialValues] = useState({
         title: "",
         description: "",
         category: "",
@@ -14,7 +14,7 @@ export const useModal = (initialState = false) => {
 
     const handleOpen = (product = null) => {
         if (product) {
-            setFormValues({
+            setInitialValues({
                 title: product.title,
                 description: product.description,
                 category: product.category,
@@ -38,7 +38,7 @@ export const useModal = (initialState = false) => {
     };
 
     const resetForm = () => {
-        setFormValues({
+        setInitialValues({
             title: "",
             description: "",
             category: "",
@@ -47,18 +47,12 @@ export const useModal = (initialState = false) => {
         });
     };
 
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormValues((prevValues) => ({ ...prevValues, [name]: value }));
-    };
-
     return {
         isOpen,
         isEditMode,
-        formValues,
+        initialValues,
         productId,
         handleOpen,
         handleClose,
-        handleChange,
     };
 };

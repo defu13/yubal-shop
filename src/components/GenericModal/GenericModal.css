@@ -30,6 +30,8 @@
     position: relative;
     width: 90%;
     max-width: 500px;
+    overflow-y: auto;
+    max-height: 90%;
 }
 
 .light-mode .modal-close-button {

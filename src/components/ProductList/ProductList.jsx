@@ -18,8 +18,7 @@ function ProductList() {
         handleOpen,
         isOpen,
         handleClose,
-        formValues,
-        handleChange,
+        initialValues,
         isEditMode,
         productId,
     } = useModal();
@@ -55,8 +54,7 @@ function ProductList() {
                     <ProductModal
                         isOpen={isOpen}
                         onClose={handleClose}
-                        formValues={formValues}
-                        handleChange={handleChange}
+                        initialValues={initialValues}
                         isEditMode={isEditMode}
                         productId={productId}
                     />
