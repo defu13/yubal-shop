@@ -8,7 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
+    z-index: 1003;
     box-sizing: border-box;
     padding: 1rem;
 }
@@ -31,7 +31,7 @@
     width: 90%;
     max-width: 500px;
     overflow-y: auto;
-    max-height: 90%;
+    max-height: 95%;
 }
 
 .light-mode .modal-close-button {

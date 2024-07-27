@@ -15,6 +15,19 @@ import { useTheme } from "../../hooks/useTheme";
 
 function NavBar() {
     const [searchInput, setSearchInput] = useState("");
+    const [activeNav, setActiveNav] = useState("nav-menu-list");
+    const [toggleIcon, setToggleIcon] = useState("nav-toggler");
+
+    const navToggle = () => {
+        if (activeNav === "nav-menu-list") {
+            setActiveNav("nav-menu-list nav-active");
+            setToggleIcon("nav-toggler toggle");
+        } else {
+            setActiveNav("nav-menu-list");
+            setToggleIcon("nav-toggler");
+        }
+    };
+
     const { theme, toggleTheme } = useTheme();
     const { cartItems } = useContext(CartContext);
     const { setSearchQuery } = useSearch();
@@ -43,18 +56,35 @@ function NavBar() {
                         <Link to="/" className="logo-button">
                             <p className="logo">MiTienda</p>
                         </Link>
-                        <Link to="/" className="menu-item">
-                            Inicio
-                        </Link>
-                        <Link className="menu-item" to="/">
-                            Categorías
-                        </Link>
-                        <Link className="menu-item" to="/">
-                            Ofertas
-                        </Link>
-                        <Link className="menu-item" to="/">
-                            Contacto
-                        </Link>
+                        <nav className="nav-menu">
+                            <ul className={activeNav}>
+                                <li className="nav-item">
+                                    <Link to="/" className="menu-item" onClick={navToggle}>
+                                        Inicio
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to="/" className="menu-item" onClick={navToggle}>
+                                        Categorías
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to="/" className="menu-item" onClick={navToggle}>
+                                        Ofertas
+                                    </Link>
+                                </li>
+                                <li className="nav-item">
+                                    <Link to="/" className="menu-item" onClick={navToggle}>
+                                        Contacto
+                                    </Link>
+                                </li>
+                            </ul>
+                            <div className={toggleIcon} onClick={navToggle}>
+                                <div className="line1"></div>
+                                <div className="line2"></div>
+                                <div className="line3"></div>
+                            </div>
+                        </nav>
                     </div>
                     <div className="nav-container">
                         <input
