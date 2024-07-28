@@ -1,10 +1,12 @@
 :root{
     --extra-light-color: #e8eaf3;
     --light-color: #d8dbe3;
+    --light-lessOpaque-color: #d8dbe3ec;
     --medium-light-color: #8a9ab9;
     --medium-color: #646f85;
     --medium-dark-color: #3e4553;
     --dark-color: #2f3444;
+    --dark-lessOpaque-color: #2f3444ec;
     --extra-dark-color: #242938;
 
     --alert-color: #d58800;
